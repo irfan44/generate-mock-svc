@@ -24,6 +24,14 @@ function App() {
       }
     };
 
+    const importMethod = () => {
+      if (method === "GET") {
+        return "import org.springframework.web.bind.annotation.GetMapping;";
+      } else if (method === "POST") {
+        return "import org.springframework.web.bind.annotation.PostMapping;";
+      }
+    };
+
     console.log(JSON.stringify(responseJSON));
     const responseJSONStringify = JSON.stringify(responseJSON);
 
@@ -33,7 +41,7 @@ function App() {
     import org.springframework.http.HttpStatus;
     import org.springframework.http.MediaType;
     import org.springframework.http.ResponseEntity;
-    import org.springframework.web.bind.annotation.PostMapping;
+    ${importMethod()}
     import org.springframework.web.bind.annotation.RequestMapping;
     import org.springframework.web.bind.annotation.RestController;
 
